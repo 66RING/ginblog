@@ -1,5 +1,0 @@
-time="2020-08-11T20:39:25+08:00" level=info Agent=PostmanRuntime/7.26.3 DataSize=1005 HostName=laptop Ip="::1" Method=GET Path="/api/v1/user?pagesize=6&pagenum=1" SpendTime="4 ms" Status=200
-time="2020-08-11T20:39:49+08:00" level=info Agent=PostmanRuntime/7.26.3 DataSize=74 HostName=laptop Ip="::1" Method=GET Path="/api/v1/category?pagesize=1&pagenum=1" SpendTime="2 ms" Status=200
-time="2020-08-11T20:40:06+08:00" level=info Agent=PostmanRuntime/7.26.3 DataSize=980 HostName=laptop Ip="::1" Method=GET Path="/api/v1/article?pagesize&pagenum" SpendTime="3 ms" Status=200
-time="2020-08-11T20:40:13+08:00" level=info Agent=PostmanRuntime/7.26.3 DataSize=506 HostName=laptop Ip="::1" Method=GET Path="/api/v1/article/list/0?pagesize=&pagenum=" SpendTime="2 ms" Status=200
-tName=laptop Ip="::1" Method=POST Path=/api/v1/user/add SpendTime="1 ms" Status=200

@@ -22,3 +22,7 @@
 - 日志分割，方便我们查看
     * github.com/lestrrat-go/file-rotatelogs
     * github.com/rifflock/lfshook
+- validate验证
+    * 防止用户绕过前端做些非法操作，如创建超级用户
+    * 也可限制密码长度、用户名字符类型等
+- 配置跨域

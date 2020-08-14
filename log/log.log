@@ -1,1 +1,0 @@
-time="2020-08-11T17:37:13+08:00" level=info Agent=PostmanRuntime/7.26.3 DataSize=995 HostName=laptop Ip="::1" Method=GET Path="/api/v1/user?pagesize=6&pagenum=1" SpendTime="1 ms" Status=200
