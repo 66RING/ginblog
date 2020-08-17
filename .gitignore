@@ -2,3 +2,6 @@ go.sum
 
 config/config.ini
 log/*
+
+latest_log.log
+latest_log.log

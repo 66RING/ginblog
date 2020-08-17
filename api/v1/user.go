@@ -45,6 +45,7 @@ func AddUser(c *gin.Context) {
 func GetUsers(c *gin.Context) {
 	pageSize, _ := strconv.Atoi(c.Query("pagesize"))
 	pageNum, _ := strconv.Atoi(c.Query("pagenum"))
+	username := c.Query("username")
 
 	if pageSize == 0 {
 		pageSize = -1 // cancel limit with -1
@@ -53,7 +54,7 @@ func GetUsers(c *gin.Context) {
 		pageNum = -1
 	}
 
-	data, total := model.GetUsers(pageSize, pageNum)
+	data, total := model.GetUsers(username, pageSize, pageNum)
 	code = errmsg.SUCCSE
 	c.JSON(http.StatusOK, gin.H{
 		"status":  code,
