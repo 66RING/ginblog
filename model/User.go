@@ -18,9 +18,22 @@ type User struct {
 
 // 用户是否存在
 func CheckUser(name string) (code int) { // 也可以写在钩子函数中，但是可读性需要斟酌
-	var users User
-	db.Select("id").Where("username = ?", name).First(&users)
-	if users.ID > 0 {
+	var user User
+	db.Select("id").Where("username = ?", name).First(&user)
+	if user.ID > 0 {
+		return errmsg.ERROR_USERNAME_USED
+	}
+	return errmsg.SUCCSE
+}
+
+// 更新查询
+func CheckUpUser(id int, name string) (code int) { // 也可以写在钩子函数中，但是可读性需要斟酌
+	var user User
+	db.Select("id, username").Where("username = ?", name).First(&user)
+	if user.ID == uint(id) {
+		return errmsg.SUCCSE
+	}
+	if user.ID > 0 {
 		return errmsg.ERROR_USERNAME_USED
 	}
 	return errmsg.SUCCSE
@@ -51,10 +64,10 @@ func GetUsers(username string, pageSize int, pageNum int) ([]User, int) {
 	var total int
 
 	if username == "" {
-		db.Limit(pageSize).Offset((pageNum - 1) * pageSize).Find(&users).Count(&total)
+		db.Find(&users).Count(&total).Limit(pageSize).Offset((pageNum - 1) * pageSize)
 		return users, total
 	}
-	db.Where("username LIKE ?", username+"%").Limit(pageSize).Offset((pageNum - 1) * pageSize).Find(&users).Count(&total)
+	db.Where("username LIKE ?", username+"%").Find(&users).Count(&total).Limit(pageSize).Offset((pageNum - 1) * pageSize)
 
 	if err == gorm.ErrRecordNotFound {
 		return nil, 0

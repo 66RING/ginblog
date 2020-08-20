@@ -80,7 +80,7 @@ func EditUser(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
 	var data model.User
 	c.ShouldBind(&data)
-	code = model.CheckUser(data.Username)
+	code = model.CheckUpUser(id, data.Username)
 	if code == errmsg.SUCCSE {
 		model.EditUser(id, &data)
 	}
