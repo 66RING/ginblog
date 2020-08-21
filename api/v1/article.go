@@ -59,6 +59,7 @@ func GetArtInfo(c *gin.Context) {
 func GetArt(c *gin.Context) {
 	pageSize, _ := strconv.Atoi(c.Query("pagesize"))
 	pageNum, _ := strconv.Atoi(c.Query("pagenum"))
+	title := c.Query("title")
 
 	if pageSize == 0 {
 		pageSize = -1 // cancel limit with -1
@@ -67,7 +68,7 @@ func GetArt(c *gin.Context) {
 		pageNum = -1
 	}
 
-	data, code, total := model.GetArt(pageSize, pageNum)
+	data, code, total := model.GetArt(title, pageSize, pageNum)
 	c.JSON(http.StatusOK, gin.H{
 		"status":  code,
 		"data":    data,

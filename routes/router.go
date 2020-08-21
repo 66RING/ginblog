@@ -40,6 +40,7 @@ func InitRouter() {
 		router.GET("user", v1.GetUsers)
 		router.GET("user/:id", v1.GetUserInfo)
 		router.GET("category", v1.GetCate)
+		router.GET("category/:id", v1.GetCateInfo)
 		router.GET("article", v1.GetArt)
 		router.GET("article/list/:id", v1.GetCateArt)
 		router.GET("article/info/:id", v1.GetArtInfo)

@@ -27,6 +27,16 @@ func AddCategory(c *gin.Context) {
 }
 
 // 查询单个分类
+func GetCateInfo(c *gin.Context) {
+	id, _ := strconv.Atoi(c.Query("id"))
+
+	data, code := model.GetCateInfo(id)
+	c.JSON(http.StatusOK, gin.H{
+		"status": code,
+		"data":   data,
+		"msg":    errmsg.GetErrMsg(code),
+	})
+}
 
 // 查询分类列表
 func GetCate(c *gin.Context) {
