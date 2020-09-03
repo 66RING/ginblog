@@ -51,7 +51,7 @@ func GetArt(title string, pageSize int, pageNum int) ([]Article, int, int) {
 	var articleList []Article
 	var total int
 	if title == "" {
-		err := db.Preload("Category").Find(&articleList).Count(&total).Limit(pageSize).Offset((pageNum - 1) * pageSize).Error // Preload学习以下
+		err := db.Order("Updated_At DESC").Preload("Category").Find(&articleList).Count(&total).Limit(pageSize).Offset((pageNum - 1) * pageSize).Error // Preload学习以下
 		if err != nil && err != gorm.ErrRecordNotFound {
 			return nil, errmsg.ERROR, 0
 		}

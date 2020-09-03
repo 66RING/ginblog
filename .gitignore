@@ -2,6 +2,7 @@ go.sum
 
 config/config.ini
 log/*
+static/admin
 
 latest_log.log
 latest_log.log
